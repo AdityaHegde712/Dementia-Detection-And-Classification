@@ -1,0 +1,665 @@
+1. dementia_dataset (374 records, needs cleaning) - From oasis2,  analyses various MRI scans and information for each patient. Key variables: Diagnosis group, cognitive scores, brain volumes. 
+Attributes:
+Subject ID - Unique identifier for each subject
+MRI ID - Unique ID for each MRI scan session
+Group - Diagnosis status (Nondemented, Demented, Converted)
+Visit - Visit number
+MR Delay - Days since previous MRI
+M/F - Gender
+Hand - Handedness (R/L)
+Age - Age of subject at visit
+EDUC - Years of education
+SES - Socioeconomic status
+MMSE - Score on Mini-Mental State Exam (cognitive impairment screening)
+CDR - Clinical Dementia Rating (dementia severity)
+eTIV - Estimated total intracranial volume
+nWBV - Normalized whole brain volume
+ASF - Atlas scaling factor
+
+2. investigator_apet_nacc62 - From NACC, analyses various tests.
+Attributes:
+RID - Unique subject identifier
+VISCODE - Visit code (bl = baseline, mXX = month XX visit)
+SITE - Assessment site
+DX - Diagnosis
+DXCHANGE - Change in diagnosis
+AGE - Age at visit
+PTEDUCAT - Years of education
+CogStateOCL - One Card Learning cognitive test
+CogStateDET - Detection cognitive test
+CogStateIDN - Identification cognitive test
+CogStateONB - One Back Memory cognitive test
+CogStateTWOB - Two Back Memory cognitive test
+CogStateGP - Groton Maze Learning Test
+CogStateLMI - International Shopping List test
+Focuses more on MCI, has multiple visits per unique subject. Useful for how MCI gets worse over visits.
+
+3. investigator_fcsf_nacc62 - Very incomplete dataset, seems low quality, difficult to work with due to absence of various values.
+Attributes: 
+NACCADC - NACC Alzheimer's Disease Center code
+NACCID - Unique subject identifier
+CSFABETA - CSF amyloid beta levels
+CSFPTAU - CSF phosphorylated tau levels
+CSFTTAU - CSF total tau levels
+CSFLPMO - CSF collection month
+CSFLPDY - CSF collection day
+CSFLPYR - CSF collection year
+NACCAPTA - Amyloid PET scan file name
+NACCAPTF - Amyloid PET scan date factors
+NACCAPNM - Amyloid PET scan normalization method
+NACCAPTD - Amyloid PET scan days from CSF collection
+APETMANU - Amyloid PET manufacturer
+APETMODL - Amyloid PET scanner model
+NACCNAPT - Number of amyloid PET scans
+NACCAPET - Amyloid PET done
+LIGANDN - Amyloid PET ligand name
+NACCAPSA - Number of amyloid PET scans for analysis
+NACCNAPA - Number of amyloid PET scans for averaging
+Appears to be data linking CSF biomarker values with amyloid PET scans in subjects, including timing information.
+Key vars: CSF markers, Amyloid PET scan values, Timing between CSF and PET. Works with AD.
+
+4. investigator_mri_nacc62 - From NACC, analyses various MRI scans and information for each patient.
+NACCADC - NACC Alzheimer's Disease Center code
+NACCID - Unique subject identifier
+MRIMO - MRI month
+MRIDY - MRI day
+MRIYR - MRI year
+NACCMRIA - MRI scan file name
+NACCMRFI - MRI date factors
+NACCMNUM - Number of MRIs for averaging
+NACCMRDY - Days from initial visit to MRI
+MRIT1 - T1 scan done
+MRIT2 - T2 scan done
+MRIDTI - Diffusion tensor imaging scan done
+MRIDWI - Diffusion weighted imaging scan done
+MRIFLAIR - FLAIR scan done
+MRIOTHER - Other MRI modalities done
+MRIFIELD - MRI field strength (1.5T or 3T)
+MRIMANU - MRI manufacturer
+MRIMODL - MRI scanner model
+NACCMVOL - Measured cranial/total brain volume
+NACCICV - Estimated intracranial/total intracranial volume
+NACCBRNV - Normalized whole brain volume
+NACCWMVL - White matter lesion/hyperintensity volume
+NACCNIFT - Image quality rating
+FRONTGRY - Frontal gray matter volume
+FRONTWHT - Frontal white matter volume
+FRONTCSF - Frontal CSF volume
+OCCIPGRY - Occipital gray matter volume
+OCCIPWHT - Occipital white matter volume
+OCCIPCSF - Occipital CSF volume
+PARGRY - Parietal gray matter volume
+PARWHT - Parietal white matter volume
+PARCSF - Parietal CSF volume
+TEMPGRY - Temporal gray matter volume
+TEMPWHT - Temporal white matter volume
+TEMPCSF - Temporal CSF volume
+CSFVOL - Total CSF volume
+GRAYVOL - Total gray matter volume
+WHITEVOL - Total white matter volume
+WMHVOL - Total white matter hyperintensity/lesion volume
+HIPPOVOL - Hippocampal volume
+CEREALL - Cerebellum all volumes
+CERETISS - Cerebellum tissue volume
+CERECSF - Cerebellum CSF volume
+CEREGR - Cerebellum gray matter volume
+CEREWH - Cerebellum white matter volume
+LHIPPO - Left hippocampus volume
+RHIPPO - Right hippocampus volume
+LLATVENT - Left lateral ventricle volume
+RLATVENT - Right lateral ventricle volume
+LATVENT - Total lateral ventricle volume
+THIRVENT - Third ventricle volume
+LFRCORT - Left frontal cortical gray matter volume
+RFRCORT - Right frontal cortical gray matter volume
+FRCORT - Total frontal cortical gray matter volume
+LOCCORT - Left occipital cortical gray matter volume
+ROCCORT - Right occipital cortical gray matter volume
+OCCCORT - Total occipital cortical gray matter volume
+LPARCORT - Left parietal cortical gray matter volume
+RPARCORT - Right parietal cortical gray matter volume
+PARCORT - Total parietal cortical gray matter volume
+LTEMPCOR - Left temporal cortical gray matter volume
+RTEMPCOR - Right temporal cortical gray matter volume
+TEMPCOR - Total temporal cortical gray matter volume
+LCAC - Left caudate volume
+LCACM - Left caudate gray matter volume
+LCMF - Left caudate CSF volume
+LCMFM - Left caudate white matter volume
+LCUN - Left accumbens volume
+LCUNM - Left accumbens gray matter volume
+LENT - Left lenticular nucleus volume
+LENTM - Left lenticular nucleus gray matter volume
+LFUS - Left fusiform gyrus volume
+LFUSM - Left fusiform gyrus gray matter volume
+LINFPAR - Left inferior parietal volume
+LINFPARM - Left inferior parietal gray matter volume
+LINFTEMP - Left inferior temporal volume
+LINFTEMM - Left inferior temporal gray matter volume
+LINSULA - Left insula volume
+LINSULAM - Left insula gray matter volume
+LISTHC - Left isthmus of cingulate volume
+LISTHCM - Left isthmus of cingulate gray matter volume
+LLATOCC - Left lateral occipital volume
+LLATOCCM - Left lateral occipital gray matter volume
+LLATORBF - Left lateral orbitofrontal volume
+LLATORBM - Left lateral orbitofrontal gray matter volume
+LLING - Left lingual gyrus volume
+LLINGM - Left lingual gyrus gray matter volume
+LMEDORBF - Left medial orbitofrontal volume
+LMEDORBM - Left medial orbitofrontal gray matter volume
+LMIDTEMP - Left middle temporal gyrus volume
+LMIDTEMM - Left middle temporal gyrus gray matter volume
+LPARCEN - Left paracentral lobule volume
+LPARCENM - Left paracentral lobule gray matter volume
+LPARHIP - Left parahippocampal gyrus volume
+LPARHIPM - Left parahippocampal gyrus gray matter volume
+LPARSOP - Left pars opercularis volume
+LPARSOPM - Left pars opercularis gray matter volume
+LPARORB - Left pars orbitalis volume
+LPARORBM - Left pars orbitalis gray matter volume
+LPARTRI - Left pars triangularis volume
+LPARTRIM - Left pars triangularis gray matter volume
+LPERCAL - Left pericalcarine volume
+LPERCALM - Left pericalcarine gray matter volume
+LPOSCEN - Left postcentral gyrus volume
+LPOSCENM - Left postcentral gyrus gray matter volume
+LPOSCIN - Left postcental insula volume
+LPOSCINM - Left postcentral insula gray matter volume
+LPRECEN - Left precentral gyrus volume
+LPRECENM - Left precentral gyrus gray matter volume
+LPRECUN - Left precuneus volume
+LPRECUNM - Left precuneus gray matter volume
+LROSANC - Left rostral anterior cingulate volume
+LROSANCM - Left rostral anterior cingulate gray matter volume
+LROSMF - Left rostral middle frontal volume
+LROSMFM - Left rostral middle frontal gray matter volume
+LSUPFR - Left superior frontal volume
+LSUPFRM - Left superior frontal gray matter volume
+LSUPPAR - Left superior parietal volume
+LSUPPARM - Left superior parietal gray matter volume
+LSUPTEM - Left superior temporal volume
+LSUPTEMM - Left superior temporal gray matter volume
+LSUPMAR - Left supramarginal gyrus volume
+LSUPMARM - Left supramarginal gyrus gray matter volume
+LTRTEM - Left transverse temporal gyrus volume
+LTRTEMM - Left transverse temporal gyrus gray matter volume
+RCAC - Right caudate volume
+RCACM - Right caudate gray matter volume
+RCMF - Right caudate CSF volume
+RCMFM - Right caudate white matter volume
+RCUN - Right accumbens volume
+RCUNM - Right accumbens gray matter volume
+RENT - Right lenticular nucleus volume
+RENTM - Right lenticular nucleus gray matter volume
+RFUS - Right fusiform gyrus volume
+RFUSM - Right fusiform gyrus gray matter volume
+RINFPAR - Right inferior parietal volume
+RINFPARM - Right inferior parietal gray matter volume
+RINFTEMP - Right inferior temporal volume
+RINFTEMM - Right inferior temporal gray matter volume
+RINSULA - Right insula volume
+RINSULAM - Right insula gray matter volume
+RISTHC - Right isthmus of cingulate volume
+RISTHCM - Right isthmus of cingulate gray matter volume
+RLATOCC - Right lateral occipital volume
+RLATOCCM - Right lateral occipital gray matter volume
+RLATORBF - Right lateral orbitofrontal volume
+RLATORBM - Right lateral orbitofrontal gray matter volume
+RLING - Right lingual gyrus volume
+RLINGM - Right lingual gyrus gray matter volume
+RMEDORBF - Right medial orbitofrontal volume
+RMEDORBM - Right medial orbitofrontal gray matter volume
+RMIDTEMP - Right middle temporal gyrus volume
+RMIDTEMM - Right middle temporal gyrus gray matter volume
+RPARCEN - Right paracentral lobule volume
+RPARCENM - Right paracentral lobule gray matter volume
+RPARHIP - Right parahippocampal gyrus volume
+RPARHIPM - Right parahippocampal gyrus gray matter volume
+RPARSOP - Right pars opercularis volume
+RPARSOPM - Right pars opercularis gray matter volume
+RPARORB - Right pars orbitalis volume
+RPARORBM - Right pars orbitalis gray matter volume
+RPARTRI - Right pars triangularis volume
+RPARTRIM - Right pars triangularis gray matter volume
+RPERCAL - Right pericalcarine volume
+RPERCALM - Right pericalcarine gray matter volume
+RPOSCEN - Right postcentral gyrus volume
+RPOSCENM - Right postcentral gyrus gray matter volume
+RPOSCIN - Right postcental insula volume
+RPOSCINM - Right postcentral insula gray matter volume
+RPRECEN - Right precentral gyrus volume
+RPRECENM - Right precentral gyrus gray matter volume
+RPRECUN - Right precuneus volume
+RPRECUNM - Right precuneus gray matter volume
+RROSANC - Right rostral anterior cingulate volume
+RROSANCM - Right rostral anterior cingulate gray matter volume
+RROSMF - Right rostral middle frontal volume
+RROSMFM - Right rostral middle frontal gray matter volume
+RSUPFR - Right superior frontal volume
+RSUPFRM - Right superior frontal gray matter volume
+RSUPPAR - Right superior parietal volume
+RSUPPARM - Right superior parietal gray matter volume
+RSUPTEM - Right superior temporal volume
+RSUPTEMM - Right superior temporal gray matter volume
+RSUPMAR - Right supramarginal gyrus volume
+RSUPMARM - Right supramarginal gyrus gray matter volume
+RTRTEM - Right transverse temporal gyrus volume
+RTRTEMM - Right transverse temporal gyrus gray matter volume
+NACCNMRI - Number of MRIs
+NACCDICO - Completeness of MRI measures
+NACCVNUM - Visit number for MRI measures
+NACCMRSA - MRI scan available
+(190 attributes here)
+Allows analysis of atrophy patterns and rates of longitudinal change. Rich data.
+
+5. investigator_nacc62: Attributes:
+Based on the attributes provided, here is my analysis of what each column may represent:
+NACCID - Unique participant identifier
+NACCADC - Alzheimer's Disease Center identifier
+PACKET - Data packet identifier
+FORMVER - Form version
+VISITMO - Visit month
+VISITDAY - Visit day
+VISITYR - Visit year
+NACCVNUM - Visit number
+NACCAVST - Available visits
+NACCNVST - Number of visits
+NACCDAYS - Days from initial visit
+NACCFDYS - Days from death
+NACCCORE - Core data collected
+NACCREAS - Reason for visit
+NACCREFR - Referral source
+BIRTHMO - Birth month
+BIRTHYR - Birth year
+SEX - Sex
+HISPANIC - Hispanic/Latino ethnicity
+HISPOR - Hispanic/Latino ethnicity: Portuguese
+HISPORX - Hispanic/Latino ethnicity: Portuguese, other
+RACE - Race
+RACEX - Race, other
+RACESEC - Secondary race
+RACESECX - Secondary race, other
+RACETER - Tertiary race
+RACETERX - Tertiary race, other
+PRIMLANG - Primary language
+PRIMLANX - Primary language, other
+EDUC - Education level
+MARISTAT - Marital status
+NACCLIVS - Living situation
+INDEPEND - Independent living
+RESIDENC - Residence
+HANDED - Handedness
+INBIRMO - Informant's birth month
+INBIRYR - Informant's birth year
+INSEX - Informant's sex
+NEWINF - New informant
+INHISP - Informant Hispanic/Latino ethnicity
+INHISPOR - Informant Hispanic/Latino ethnicity: Portuguese
+INHISPOX - Informant Hispanic/Latino ethnicity: Portuguese, other
+NACCNINR - Informant race
+INRACE - Informant race
+INRACEX - Informant race, other
+INRASEC - Informant secondary race
+INRASECX - Informant secondary race, other
+INRATER - Informant tertiary race
+INRATERX - Informant tertiary race, other
+INEDUC - Informant education
+INRELTO - Informant's relationship to participant
+INRELTOX - Informant's relationship to participant, other
+INKNOWN - Years informant has known participant
+INLIVWTH - Informant lives with participant
+INVISITS - How often informant visits participant
+INCALLS - How often informant calls participant
+INRELY - Reliability of informant
+NACCFAM - Family history of neurological disorders
+NACCMOM - Mother neurological history
+NACCDAD - Father neurological history
+NACCAM - Sibling neurological history
+NACCAMX - Sibling neurological history, other
+NACCAMS - Number of siblings
+NACCAMSX - Number of siblings, other
+NACCFM - Maternal family neurological history
+NACCFMX - Maternal family neurological history, other
+NACCFMS - Number of maternal family members
+NACCFMSX - Number of maternal family members, other
+NACCOM - Maternal family member relation
+NACCOMX - Maternal family member relation, other
+NACCOMS - Number of maternal family members with condition
+NACCOMSX - Number of maternal family members with condition, other
+NACCFADM - Paternal family neurological history
+NACCFFTD - Number of paternal family members with dementia
+ANYMEDS - Taking any medications
+DRUG1-DRUG40 - Medications
+TOBAC30 - Smoked cigarettes in last 30 days
+TOBAC100 - Smoked 100 cigarettes in lifetime
+SMOKYRS - Number of years smoked
+PACKSPER - Packs smoked per day
+QUITSMOK - Quit smoking
+ALCOCCAS - Alcohol usage frequency
+ALCFREQ - Alcohol drinks per week
+CVHATT - Cardiovascular history
+HATTMULT - Multiple cardiovascular conditions
+HATTYEAR - Year of first cardiovascular diagnosis
+CVAFIB - Atrial fibrillation
+CVANGIO - Angina
+CVBYPASS - Heart bypass surgery
+CVPACDEF - Pacemaker defibrillator
+CVPACE - Pacemaker
+CVCHF - Congestive heart failure
+CVANGINA - Angina diagnosed
+CVHVALVE - Heart valve replacement
+CVOTHR - Other cardiovascular disease
+CVOTHRX - Other cardiovascular disease, specify
+CBSTROKE - Stroke history
+STROKMUL - Multiple strokes
+NACCSTYR - Year of first stroke
+CBTIA - Transient ischemic attack
+TIAMULT - Multiple TIAs
+NACCTIYR - Year of first TIA
+PD - Parkinson's disease
+PDYR - Year of PD diagnosis
+PDOTHR - Other parkinsonism
+PDOTHRYR - Year of other parkinsonism diagnosis
+SEIZURES - Seizures
+NACCTBI - Traumatic brain injury
+TBI - Traumatic brain injury
+TBIBRIEF - TBI with brief loss of consciousness (<30 min)
+TRAUMBRF - TBI with prolonged loss of consciousness (>30 min)
+TBIEXTEN - Extended TBI effects
+TRAUMEXT - Extended TBI effects, specify
+TBIWOLOS - TBI without loss of consciousness
+TRAUMCHR - Chronic effects of TBI
+TBIYEAR - Year of most severe TBI
+NCOTHR - Other neurological condition
+NCOTHRX - Other neurological condition, specify
+DIABETES - Diabetes diagnosed
+DIABTYPE - Diabetes type
+HYPERTEN - Hypertension diagnosed
+HYPERCHO - Hypercholesterolemia diagnosed
+B12DEF - Vitamin B12 deficiency
+THYROID - Thyroid disease
+ARTHRIT - Arthritis
+ARTHTYPE - Arthritis type
+ARTHTYPX - Arthritis type, other
+ARTHUPEX - Upper extremity arthritis
+ARTHLOEX - Lower extremity arthritis
+ARTHSPIN - Spine arthritis
+ARTHUNK - Unknown arthritis type
+INCONTU - Urinary incontinence
+INCONTF - Fecal incontinence
+APNEA - Sleep apnea diagnosed
+RBD - REM sleep disorder diagnosed
+INSOMN - Insomnia
+OTHSLEEP - Other sleep disorder
+OTHSLEEX - Other sleep disorder, specify
+ALCOHOL - Alcohol abuse
+ABUSOTHR - Other substance abuse
+ABUSX - Other substance abuse, specify
+PTSD - PTSD diagnosed
+BIPOLAR - Bipolar disorder diagnosed
+SCHIZ - Schizophrenia diagnosed
+DEP2YRS - Depressed in last 2 years
+DEPOTHR - Other depression
+ANXIETY - Anxiety diagnosed
+OCD - OCD diagnosed
+NPSYDEV - Neuropsychiatric developmental disability
+PSYCDIS - Psychiatric disorders
+PSYCDISX - Psychiatric disorders, other
+HEIGHT - Height
+WEIGHT - Weight
+BPSYS - Blood pressure - systolic
+BPDIAS - Blood pressure - diastolic
+HRATE - Heart rate
+VISION - Vision
+VISCORR - Corrected vision
+VISWCORR - Wears corrective lenses
+HEARING - Hearing
+HEARAID - Hearing aid
+HEARWAID - Wears hearing aid
+ABRUPT - Abrupt onset of cognitive impairment
+STEPWISE - Stepped onset of cognitive impairment
+SOMATIC - Somatic complaints
+EMOT - Emotional incontinence
+HXHYPER - History of hypertension
+HXSTROKE - History of stroke
+FOCLSYM - Focal neurological symptoms
+FOCLSIGN - Focal neurological exam signs
+HACHIN - Headaches
+CVDCOG - CVD and cognitive impairment
+STROKCOG - Stroke and cognitive impairment
+CVDIMAG - CVD on imaging
+CVDIMAG1-4 - CVD on imaging, specify
+CVDIMAGX - CVD on imaging, other
+PDNORMAL - Parkinsonian signs, normal exam
+SPEECH - Speech impairment
+SPEECHX - Speech impairment, specify
+FACEXP - Facial expression
+FACEXPX - Facial expression, specify
+TRESTFAC - Facial resting tremor
+TRESTFAX - Facial resting tremor, specify
+TRESTRHD - Right hand resting tremor
+TRESTRHX - Right hand resting tremor, specify
+TRESTLHD - Left hand resting tremor
+TRESTLHX - Left hand resting tremor, specify
+TRESTRFT - Right foot resting tremor
+TRESTRFX - Right foot resting tremor, specify
+TRESTLFT - Left foot resting tremor
+TRESTLFX - Left foot resting tremor, specify
+TRACTRHD - Right hand action tremor
+TRACTRHX - Right hand action tremor, specify
+TRACTLHD - Left hand action tremor
+TRACTLHX - Left hand action tremor, specify
+RIGDNECK - Neck rigidity
+RIGDNEX - Neck rigidity, specify
+RIGDUPRT - Upper right rigidity
+RIGDUPRX - Upper right rigidity, specify
+RIGDUPLF - Upper left rigidity
+RIGDUPLX - Upper left rigidity, specify
+RIGDLORT - Lower right rigidity
+RIGDLORX - Lower right rigidity, specify
+RIGDLOLF - Lower left rigidity
+RIGDLOLX - Lower left rigidity, specify
+TAPSRT - Right hand tapping speed
+TAPSRTX - Right hand tapping observations
+TAPSLF - Left hand tapping speed
+TAPSLFX - Left hand tapping observations
+HANDMOVR - Right hand movements
+HANDMVRX - Right hand movements, specify
+HANDMOVL - Left hand movements
+HANDMVLX - Left hand movements, specify
+HANDALTR - Alternating hand movements
+HANDATRX - Alternating hand movements, specify
+HANDALTL - Alternating hand movements, left
+HANDATLX - Alternating hand movements left, specify
+LEGRT - Right leg agility
+LEGRTX - Right leg agility, specify
+LEGLF - Left leg agility
+LEGLFX - Left leg agility, specify
+ARISING - Arising from chair
+ARISINGX - Arising from chair, specify
+POSTURE - Posture
+POSTUREX - Posture, specify
+GAIT - Gait
+GAITX - Gait, specify
+POSSTAB - Postural stability
+POSSTABX - Postural stability, specify
+BRADYKIN - Bradykinesia
+BRADYKIX - Bradykinesia, specify
+MEMORY - Memory
+ORIENT - Orientation
+JUDGMENT - Judgement
+COMMUN - Community affairs
+HOMEHOBB - Home and hobbies
+PERSCARE - Personal care
+CDRSUM - CDR sum of boxes
+CDRGLOB - CDR global score
+COMPORT - Behavioral symptoms
+CDRLANG - Language impairment
+NPIQINF - NPI informant section completed
+NPIQINFX - NPI questions asked, specify
+DEL - Delusions
+DELSEV - Delusion severity
+HALL - Hallucinations
+HALLSEV - Hallucination severity
+AGIT - Agitation
+AGITSEV - Agitation severity
+DEPD - Depression
+DEPDSEV - Depression severity
+ANX - Anxiety
+ANXSEV - Anxiety severity
+ELAT - Elation
+ELATSEV - Elation severity
+APA - Apathy
+APASEV - Apathy severity
+DISN - Disinhibition
+DISNSEV - Disinhibition severity
+IRR - Irritability
+IRRSEV - Irritability severity
+MOT - Aberrant motor behavior
+MOTSEV - Aberrant motor behavior severity
+NITE - Nighttime behaviors
+NITESEV - Nighttime behavior severity
+APP - Appetite/eating changes
+APPSEV - Appetite/eating changes severity
+NOGDS - Geriatric Depression Scale done
+SATIS - Life satisfaction
+DROPACT - Dropped activities
+EMPTY - Emptiness
+BORED - Boredom
+SPIRITS - In good spirits
+AFRAID - Afraid something bad will happen
+HAPPY - Happy most of the time
+HELPLESS - Feeling helpless
+STAYHOME - Stays at home
+MEMPROB - Memory problems
+WONDRFUL - Life is wonderful
+WRTHLESS - Feels worthless
+ENERGY - Full of energy
+HOPELESS - Feels hopeless
+BETTER - Situation is better
+NACCGDS - Total Geriatric Depression Scale score
+BILLS - Difficulty paying bills
+TAXES - Difficulty managing taxes
+SHOPPING - Difficulty shopping alone
+GAMES - Difficulty playing games
+STOVE - Difficulty operating appliances/machinery
+MEALPREP - Difficulty preparing meals
+EVENTS - Difficulty keeping track of events
+PAYATTN - Difficulty paying attention
+REMDATES - Difficulty remembering dates
+TRAVEL - Difficulty traveling alone
+NACCNREX - Neuropsychological exam done
+NORMEXAM - Normal neuropsychological exam
+FOCLDEF - Evidence of focal neurologic deficit on exam
+GAITDIS - Gait disorder
+EYEMOVE - Disorders of eye movements
+PARKSIGN - Parkinsonian signs
+RESTTRL - Resting tremor
+RESTTRR - Resting tremor, right
+SLOWINGL - Bradykinesia, left
+SLOWINGR - Bradykinesia, right
+RIGIDL - Rigidity, left
+RIGIDR - Rigidity, right
+BRADY - Bradykinesia
+PARKGAIT - Parkinsonian gait
+POSTINST - Postural instability
+CVDSIGNS - Evidence of cerebrovascular disease by signs
+CORTDEF - Cortical sensory deficit
+SIVDFIND - Primitive reflexes
+CVDMOTL - Hyperreflexia, left
+CVDMOTR - Hyperreflexia, right
+CORTVISL - Visual field defect, left
+CORTVISR - Visual field defect, right
+SOMATL - Somatosensory deficit, left
+SOMATR - Somatosensory deficit, right
+POSTCORT - Posterior cortical dysfunction (e.g., apraxia)
+PSPCBS - CBS signs
+EYEPSP - Eye movement abnormalities of PSP
+DYSPSP - Dysarthria of PSP
+AXIALPSP - Axial rigidity of PSP
+GAITPSP - Gait disorder of PSP
+APRAXSP - Apraxia of PSP
+APRAXL - Limb apraxia, left
+APRAXR - Limb apraxia, right
+CORTSENL - Cortical sensory deficit, left
+CORTSENR - Cortical sensory deficit, right
+ATAXL - Ataxia, left
+ATAXR - Ataxia, right
+ALIENLML - Alien limb phenomenon, left
+ALIENLMR - Alien limb phenomenon, right
+DYSTONL - Dystonia, left
+DYSTONR - Dystonia, right
+MYOCLLT - Myoclonus, left
+MYOCLRT - Myoclonus, right
+ALSFIND - Frontal release signs
+GAITNPH - Gait disorder of NPH
+OTHNEUR - Other neurological findings
+OTHNEURX - Other neurological findings, specify
+B9CHG - Change in behavior, personality, comportment
+DECSUB - Subtype of dementia
+DECIN - Dementia present
+DECCLIN - Cognitive decline
+DECCLCOG - Cognition
+COGMEM - Memory
+COGORI - Orientation
+COGJUDG - Judgement
+COGLANG - Language
+COGVIS - Visuospatial skills
+COGATTN - Attention
+COGFLUC - Fluctuating cognition
+COGFLAGO - Fluctuations - day to day
+COGOTHR - Other cognitive domains
+COGOTHRX - Other cognitive domains, specify
+NACCCOGF - Functional status
+NACCCGFX - Functional status, specify
+COGMODE - Mode of cognitive testing
+COGMODEX - Mode of cognitive testing, specify
+DECAGE - Age of dementia onset
+DECCLBE - Behavioral symptoms
+BEAPATHY - Apathy
+BEDEP - Depression
+BEVHALL - Visual hallucinations
+BEVWELL - Well-being/happiness
+BEVHAGO - Hallucinations in other modalities
+BEAHALL - Hallucinations in multiple modalities
+BEDEL - Delusions
+BEDISIN - Disinhibition
+BEIRRIT - Irritability/lability
+BEAGIT - Agitation
+BEPERCH - Perseverations/obsessions
+BEREM - Aberrant motor behavior
+BEREMAGO - REM sleep behavior disorder
+BEANX - Anxiety
+BEOTHR - Other behavioral symptoms
+BEOTHRX - Other behavioral symptoms, specify
+NACCBEHF - Behavioral symptoms frequency
+NACCBEFX - Behavioral symptoms frequency, specify
+BEMODE - Mode of behavioral testing
+
+6 and 7. Information for other datasets
+file_name - Name of the file
+fileset_accession - Accession number for the fileset
+description - Short description of the file contents
+file_version_str - Version string for the file
+file_release_date - Date the file was released
+consent - Consent level for accessing the file
+md5 - MD5 checksum for the file
+
+8. oasis_Kaggle_longitudinal - Attributes:
+Subject ID: A unique identifier for each participant in the study.
+MRI ID: A unique identifier for each MRI scan conducted on a participant.
+Group: Indicates whether the individual is "Nondemented" or "Demented" based on their cognitive status.
+Visit: Represents the number of the MRI scan visit for the participant.
+MR Delay: The time interval (in days) between the baseline visit and the MRI scan.
+M/F: Gender of the participant, where "M" represents male and "F" represents female.
+Hand: Dominant hand of the participant (e.g., "R" for right).
+Age: The age of the participant at the time of the MRI scan.
+EDUC: Years of education completed by the participant.
+SES: Socioeconomic status of the participant.
+MMSE: Mini-Mental State Examination score, a cognitive assessment tool.
+CDR: Clinical Dementia Rating, a rating of dementia severity.
+eTIV: Estimated total intracranial volume.
+nWBV: Normalized whole brain volume.
+ASF: Atlas scaling factor, a scaling factor for brain volume measurement.
+Key attributes:Group, Age, EDUC (Education), MMSE (Mini-Mental State Examination), CDR (Clinical Dementia Rating), eTIV (Estimated total intracranial volume), nWBV (Normalized whole brain volume)

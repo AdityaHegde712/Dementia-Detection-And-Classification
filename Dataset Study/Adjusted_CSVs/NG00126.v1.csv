@@ -1,0 +1,9 @@
+file_name,fileset_accession,description,file_version_str,file_release_date,consent,md5
+ADSP_WES_EU_Belloy_2022_NIAGADS_summary_stats.txt,fsa000036,WES Summary Statistics,2022.12.13,2023-02-23,DS-ADRD-IRB-PUB-NPU,cc5440a3ccc2068692dcaa909c18e0dd
+ADSP_WGS_EU_Belloy_2022_NIAGADS_summary_stats.txt,fsa000036,WGS Summary Statistics,2022.12.13,2023-02-23,DS-ADRD-IRB-PUB-NPU,9f50673e88e201c3099cd2c8147376e6
+NG00126_README.txt,fsa000036,README,2022.12.13,2023-02-23,NONE,42ae57a0100809ca5f2e48ee829a4021
+ADSP_WES_EU_Belloy_2022_NIAGADS_summary_stats_p-value_only.txt,fsa000035,WES Summary Statistics,2022.12.13,2023-02-23,NONE,6e5fc81f4fec8357b36a7121df8b6845
+ADSP_WGS_EU_Belloy_2022_NIAGADS_summary_stats_p-value_only.txt,fsa000035,WGS Summary Statistics,2022.12.13,2023-02-23,NONE,081a18bd11a028726a0ea10dae59f0ea
+NG00126_README_p-value_only.txt,fsa000035,README,2022.12.13,2023-02-23,NONE,1b8b7cf847147141e9a7b0b3f2844848
+ADSP_WES_EU_Belloy_2022_NIAGADS_summary_stats.txt,fsa000036,WES Summary Statistics,2022.12.13,2023-02-23,ALL,cc5440a3ccc2068692dcaa909c18e0dd
+ADSP_WGS_EU_Belloy_2022_NIAGADS_summary_stats.txt,fsa000036,WGS Summary Statistics,2022.12.13,2023-02-23,ALL,9f50673e88e201c3099cd2c8147376e6
