@@ -4,9 +4,15 @@ Dataset Study/CSVs/investigator_nacc62.csv
 Resources/Datasets/CSVs and Guides.zip
 Resources/Datasets/Check later.txt
 Resources/Datasets/CSVs/NACC/investigator_nacc62.csv
+Image Processing v1/densenet121.pth
+Image Processing v1/inception_v4.pth
+Image Processing v1/mobilenetv3.pth
+Image Processing v1/resnet50.pth
+Image Processing v1/vgg16.pth
 
 # Folders
 Resources/Datasets/Voice/
 Resources/Datasets/Images/
 Resources/Datasets/S3 Bucket Files/
-Image Processing v1/
+Image Processing v1/Alzheimer_s Dataset_binary
+Image Processing v1/Checking for overfitting
