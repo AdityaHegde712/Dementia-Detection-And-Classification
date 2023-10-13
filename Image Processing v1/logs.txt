@@ -1,0 +1,79 @@
+Epochs: 30
+Batch size: 26
+Patience: 5
+Folds: 5
+train_ratio = 0.7
+test_ratio = 0.15
+val_ratio = 0.15
+
+Completed epoch 1 with loss 1.1484618186950684, validation loss 0.5057119251024432
+Completed epoch 2 with loss 1.2884621620178223, validation loss 0.3627873115786692
+Completed epoch 3 with loss 0.018827371299266815, validation loss 0.2020016667154822
+Completed epoch 4 with loss 0.006940481252968311, validation loss 0.33010066624038015
+Completed epoch 5 with loss 0.0029939389787614346, validation loss 0.13381277134151498
+Completed epoch 6 with loss 0.007666299119591713, validation loss 0.11236935644968447
+Completed epoch 7 with loss 0.0004390953981783241, validation loss 0.10733184022470463
+Completed epoch 8 with loss 0.002471413230523467, validation loss 0.15000562258199618
+Completed epoch 9 with loss 0.0007438694592565298, validation loss 0.10278692701299073
+Completed epoch 10 with loss 0.5399367809295654, validation loss 0.1635335151474531
+Completed epoch 11 with loss 0.0034285385627299547, validation loss 0.13939997676203436
+Completed epoch 12 with loss 0.00025099364574998617, validation loss 0.06483315164223313
+Completed epoch 13 with loss 1.9962234497070312, validation loss 0.09538069764525195
+Completed epoch 14 with loss 0.0027278016787022352, validation loss 0.07991527880114252
+Completed epoch 15 with loss 0.588902473449707, validation loss 0.09668096829764386
+Completed epoch 16 with loss 0.10885056853294373, validation loss 0.12886813231999417
+Completed epoch 17 with loss 0.0008250889368355274, validation loss 0.07089854714872783
+Early stopping triggered
+Done 
+
+
+Completed epoch 1 with loss 0.0037701944820582867, validation loss 0.009216065599303408
+Completed epoch 2 with loss 0.09134851396083832, validation loss 0.0032810796688952505
+Completed epoch 3 with loss 0.00042849848978221416, validation loss 0.0017437244545384957
+Completed epoch 4 with loss 0.00029483844991773367, validation loss 0.0034979860012044365
+Completed epoch 5 with loss 0.0034196763299405575, validation loss 0.001504514736730127
+Completed epoch 6 with loss 1.966567873954773, validation loss 0.001079062007059891
+Completed epoch 7 with loss 0.5882751941680908, validation loss 0.011245854372845782
+Completed epoch 8 with loss 0.0016891638515517116, validation loss 0.00948817574042151
+Completed epoch 9 with loss 0.0002722094068303704, validation loss 0.004871567255821258
+Completed epoch 10 with loss 3.5774152278900146, validation loss 0.023614466699100597
+Completed epoch 11 with loss 0.7067097425460815, validation loss 0.006152913117747209
+Early stopping triggered
+Done 
+
+
+Completed epoch 1 with loss 0.0003025247424375266, validation loss 0.001041337632059589
+Completed epoch 2 with loss 0.002657443517819047, validation loss 0.0007145421496915799
+Completed epoch 3 with loss 0.14614537358283997, validation loss 0.0007144804431934573
+Completed epoch 4 with loss 0.00035786672378890216, validation loss 0.0004371556064498003
+Completed epoch 5 with loss 4.093451023101807, validation loss 0.0013926514964945143
+Completed epoch 6 with loss 1.0318243503570557, validation loss 0.0019558999586620747
+Completed epoch 7 with loss 0.00990336574614048, validation loss 0.0022098591344929
+Completed epoch 8 with loss 1.6927522665355355e-05, validation loss 0.0025342361341023295
+Completed epoch 9 with loss 8.260858157882467e-05, validation loss 0.0010574080031846079
+Early stopping triggered
+Done 
+
+
+Completed epoch 1 with loss 0.010713346302509308, validation loss 0.00018733185870587477
+Completed epoch 2 with loss 9.166563540929928e-05, validation loss 0.0005776316922492697
+Completed epoch 3 with loss 0.0034241110552102327, validation loss 0.00022138823510431394
+Completed epoch 4 with loss 0.00016919674817472696, validation loss 0.0002327157788556633
+Completed epoch 5 with loss 2.853891372680664, validation loss 0.00022264738294097697
+Completed epoch 6 with loss 0.10030177980661392, validation loss 0.0006227151276561926
+Early stopping triggered
+Done 
+
+
+Completed epoch 1 with loss 0.0025943389628082514, validation loss 0.00026520572851040924
+Completed epoch 2 with loss 2.5011074542999268, validation loss 0.0008044633129429713
+Completed epoch 3 with loss 0.1854642629623413, validation loss 0.0021461455128701347
+Completed epoch 4 with loss 4.803924821317196e-05, validation loss 0.001172325642164651
+Completed epoch 5 with loss 0.00030428843456320465, validation loss 0.000820036013783465
+Completed epoch 6 with loss 0.00022428012744057924, validation loss 0.0005256392702904123
+Early stopping triggered
+Done 
+
+
+Average accuracy: 98.85%
+Results: [97.7124183006536, 98.69281045751634, 98.91067538126362, 99.34640522875817, 99.56427015250544]
