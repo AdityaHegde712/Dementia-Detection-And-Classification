@@ -1,3 +1,4 @@
+Model: densenet121 (newly created)
 Epochs: 30
 Batch size: 26
 Patience: 5
@@ -77,3 +78,17 @@ Done
 
 Average accuracy: 98.85%
 Results: [97.7124183006536, 98.69281045751634, 98.91067538126362, 99.34640522875817, 99.56427015250544]
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Model: densenet121 (imported)
+Epochs: 30
+Batch size: 26
+Patience: 5
+Folds: 5
+train_ratio = 0.7
+test_ratio = 0.15
+val_ratio = 0.15
+
