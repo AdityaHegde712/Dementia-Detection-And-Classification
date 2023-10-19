@@ -1,22 +1,26 @@
 from nicegui import ui, app
 import asyncio
+import tempfile
 import os
 
 @ui.page('/index')
 def index_page():
     # Function definitions
     async def on_upload(e):
-        if not str(e.name).endswith('csv'):
-            await display_error_message()
-        else:
-            with open(os.path.join('uploads', e.name), 'wb') as f:
-                f.write(e.content)
-            ui.label(f"Uploaded and saved {e.name}")
+        if str(e.name).endswith('csv') or not str(e.name).endswith('jpg'):
+            with open(os.path.join('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads', e.name), mode='wb') as f:
+                f.write(e.content.read())
+            ui.notify(f"Uploaded and saved {e.name}")
+            return
+        await display_error_message()
 
     async def display_error_message():
         label = ui.label('Error: Invalid File Type!').classes('error')
         await asyncio.sleep(3)
         label.delete()
+    
+    def processMRI():
+        ui.notify("The model will now work")
 
     # Styling
     ui.add_head_html('''
@@ -45,21 +49,42 @@ def index_page():
     # Navbar
     with ui.header(elevated=True).style('background-color: #4861f0; padding: 20px;').classes('items-center justify-between'):
         with ui.row().style('align-items: center;'):
-            ui.image('resources/dl3.png').classes('w-10')
+            ui.image('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\resources\\dl3.png').classes('w-10')
             ui.label("Dementia Detection").style('font-size: 24px; font-weight: bold; color: #ffffff;')
         with ui.row():
             ui.button('Home', on_click=lambda: ui.notify('Go back home')).style('color: ##4861f0; text-decoration: none; margin-right: 20px;')
             ui.button('About', on_click=lambda: ui.notify('Go to footer')).style('color: ##4861f0; text-decoration: none;')
     
     # Content
-    ui.label("Upload the CSV Reports here").classes('subtitle')
-    ui.upload(on_upload=on_upload, 
-              multiple=True, 
-              max_file_size=100000000, 
-              label="CSV file"
-            ).classes('upload').tailwind.flex('auto').place_items('center')
-       
+    with ui.tabs().classes('w-full') as tabs:
+        mri = ui.tab('MRI Scan')
+        csv = ui.tab('CSV Report')
+        # form = ui.tab('Manual Entry')
+    with ui.tab_panels(tabs, value=mri).classes('w-full'):
+        with ui.tab_panel(mri): # MRI Tab
+            ui.label('Upload the MRI Scans Here\n').classes('subtitle')
+            ui.upload(on_upload=on_upload, 
+                    multiple=True, 
+                    max_file_size=100000000, 
+                    label="MRI file"
+                    ).classes('upload items-center').tailwind.flex('auto').place_items('center')
+            ui.add_body_html('<br><br>')
+            
+        with ui.tab_panel(csv): # CSV Tab
+            ui.label("Upload the CSV Reports here\n").classes('subtitle')
+            ui.upload(on_upload=on_upload, 
+                    multiple=True, 
+                    max_file_size=100000000, 
+                    label="CSV file"
+                    ).classes('upload items-center').tailwind.flex('auto').place_items('center')
+            
+            # ui.notify("File upload successful!")
+        # with ui.tab_panel(form):
+        #     ui.label('Enter your information manually:').classes('subtitle')
+    ui.button(text="Get Accuracies", on_click=processMRI).classes('items-center').style('margin-left: 95px;').tailwind.flex('auto').place_items('center')
+            
+        
 index_page()
-ui.run(favicon='resources/dl3.png')
+ui.run(favicon='Front-End\\resources\\dl3.png')
 
-# Tab viwe
+# Tab view
