@@ -17,3 +17,7 @@ Resources/Datasets/S3 Bucket Files/
 Image Processing v1/Alzheimer_s Dataset_binary
 Image Processing v1/Checking for overfitting
 Image Processing v2/Multiclass_Data
+Image Processing v2/Binary_Data
+Image Processing v2/Binary_ttv
+Image Processing v2\Binary_Data\\altDemented
+Image Processing v2\Binary_Data\\altNonDemented
