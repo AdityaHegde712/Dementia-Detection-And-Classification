@@ -7,7 +7,7 @@ import os
 def index_page():
     # Function definitions
     async def on_upload(e):
-        if str(e.name).endswith('csv') or not str(e.name).endswith('jpg'):
+        if str(e.name).endswith('csv') or str(e.name).endswith('jpg'):
             with open(os.path.join('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads', e.name), mode='wb') as f:
                 f.write(e.content.read())
             ui.notify(f"Uploaded and saved {e.name}")
@@ -31,7 +31,7 @@ def index_page():
                             font-size: 24px;
                             padding-left: 80px;
                             font-weight: bold;
-                            margin-top: 80px;
+                            margin-top: 50px;
                         }
                         .upload {
                             margin-left: 80px;
@@ -48,7 +48,7 @@ def index_page():
                             margin-top: 20px;
                             margin-right: 150px;
                             font-family: 'Cairo Play', sans-serif;
-                            font-size: 18px;
+                            font-size: 20px;
                             font-weight: bold;
                         }
                     </style>       
@@ -64,11 +64,13 @@ def index_page():
             ui.button('About', on_click=lambda: ui.notify('Go to footer')).style('color: ##4861f0; text-decoration: none;')
     
     # Content
-    with ui.tabs().classes('w-full') as tabs:
+    with ui.tabs().classes('w-full').style('margin-top: -120px;') as tabs:
         mri = ui.tab('MRI Scan')
         csv = ui.tab('CSV Report')
         form = ui.tab('Manual Entry')
-    with ui.tab_panels(tabs, value=mri).classes('w-full'):
+
+    with ui.tab_panels(tabs, value=form).classes('w-full'):
+
         with ui.tab_panel(mri): # MRI Tab
             ui.label('Upload the MRI Scans Here\n').classes('subtitle')
             ui.upload(on_upload=on_upload, 
@@ -77,6 +79,7 @@ def index_page():
                     label="MRI file"
                     ).classes('upload items-center').tailwind.flex('auto').place_items('center')
             ui.add_body_html('<br><br>')
+            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center').style('margin-left: 80px; margin-top: 50px;').tailwind.flex('auto').place_items('center')
             
         with ui.tab_panel(csv): # CSV Tab
             ui.label("Upload the CSV Reports here\n").classes('subtitle')
@@ -85,18 +88,29 @@ def index_page():
                     max_file_size=100000000, 
                     label="CSV file"
                     ).classes('upload items-center').tailwind.flex('auto').place_items('center')
+            ui.add_body_html('<br><br>')
+            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center').style('margin-left: 80px; margin-top: 50px;').tailwind.flex('auto').place_items('center')
         
-        with ui.tab_panel(form):
+        with ui.tab_panel(form): # Form Tab
             ui.label('Enter your information manually:').classes('subtitle')
             # Form control for MMSE, nWBW, M/F, EDUC, MR Delay, eTIV, ASF
             ui.input(label='MMSE', placeholder='Please enter MMSE value',
-            validation={'Wrong Input type': lambda value: type(value) != 'int64'}).classes('form')
+            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
+            ui.input(label='nWBW', placeholder='Please enter nWBW value',
+            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
+            ui.input(label='M/F', placeholder='Please enter M/F value',
+            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
+            ui.input(label='EDUC', placeholder='Please enter EDUC value',
+            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
+            ui.input(label='MR Delay', placeholder='Please enter MR Delay value',
+            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
+            ui.input(label='eTIV', placeholder='Please enter eTIV value',
+            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
+            ui.input(label='ASF', placeholder='Please enter ASF value',
+            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
+            ui.add_body_html('<br><br>')
+            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center').style('margin-left: 80px; margin-top: 50px;').tailwind.flex('auto').place_items('center')       
+    
 
-            ui.notify("File upload successful!")
-        with ui.tab_panel(form):
-            ui.label('Enter your information manually:').classes('subtitle')
-    ui.button(text="Get Accuracies", on_click=processMRI).classes('items-center').style('margin-left: 95px;').tailwind.flex('auto').place_items('center')
-            
-        
 index_page()
 ui.run(favicon='Front-End\\resources\\dl3.png', port=5000)
