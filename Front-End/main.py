@@ -29,12 +29,13 @@ def index_page():
                         .subtitle {
                             font-family: 'Cairo Play', sans-serif;
                             font-size: 24px;
-                            padding-left: 80px;
                             font-weight: bold;
                             margin-top: 50px;
                         }
                         .upload {
-                            margin-left: 80px;
+                            margin-left: auto;
+                            margin-right: auto;
+                            text-align: center;  
                         }
                         .error {
                             font-size: 18px;
@@ -44,12 +45,14 @@ def index_page():
                             font-weight: bold;
                         }
                         .form {
-                            margin-left: 80px;
-                            margin-top: 20px;
-                            margin-right: 150px;
                             font-family: 'Cairo Play', sans-serif;
                             font-size: 20px;
                             font-weight: bold;
+                            justify-content: center;
+                            width: 50%;
+                            margin-left: 380px;
+                            margin-top: 20px;
+                            margin-right: 400px;
                         }
                     </style>       
              ''')
@@ -64,7 +67,7 @@ def index_page():
             ui.button('About', on_click=lambda: ui.notify('Go to footer')).style('color: ##4861f0; text-decoration: none;')
     
     # Content
-    with ui.tabs().classes('w-full').style('margin-top: -120px;') as tabs:
+    with ui.tabs().classes('w-full').style('margin-top: -120px; margin-left: auto; margin-right: auto; text-align: center;') as tabs:
         mri = ui.tab('MRI Scan')
         csv = ui.tab('CSV Report')
         form = ui.tab('Manual Entry')
@@ -72,27 +75,27 @@ def index_page():
     with ui.tab_panels(tabs, value=mri).classes('w-full'):
 
         with ui.tab_panel(mri): # MRI Tab
-            ui.label('Upload the MRI Scans Here\n').classes('subtitle'); ui.html('<br>')
+            ui.label('Upload the MRI Scans Here\n').classes('subtitle').style('text-align: center;'); ui.html('<br>')
             ui.upload(on_upload=on_upload, 
                     multiple=True, 
                     max_file_size=100000000, 
                     label="MRI file"
                     ).classes('upload items-center').tailwind.flex('auto').place_items('center')
             ui.add_body_html('<br><br>')
-            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center').style('margin-left: 80px; margin-top: 50px;').tailwind.flex('auto').place_items('center')
+            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center upload').style('margin-top: 50px; display: flex; justify-content: center;')
             
         with ui.tab_panel(csv): # CSV Tab
-            ui.label("Upload the CSV Reports here\n").classes('subtitle'); ui.html('<br>')
+            ui.label("Upload the CSV Reports here\n").classes('subtitle').style('text-align: center;'); ui.html('<br>')
             ui.upload(on_upload=on_upload, 
                     multiple=True, 
                     max_file_size=100000000, 
                     label="CSV file"
-                    ).classes('upload items-center').tailwind.flex('auto').place_items('center')
+                    ).classes('upload')
             ui.add_body_html('<br><br>')
-            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center').style('margin-left: 80px; margin-top: 50px;').tailwind.flex('auto').place_items('center')
+            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center upload').style('margin-top: 50px; display: flex; justify-content: center;')
         
         with ui.tab_panel(form): # Form Tab
-            ui.label('Enter your information manually:').classes('subtitle')
+            ui.label('Enter your information manually:').classes('subtitle').style('text-align: center;')
             # Form control for MMSE, nWBW, M/F, EDUC, MR Delay, eTIV, ASF
             ui.input(label='MMSE', placeholder='Please enter MMSE value',
             validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
@@ -109,7 +112,7 @@ def index_page():
             ui.input(label='ASF', placeholder='Please enter ASF value',
             validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
             ui.add_body_html('<br><br>')
-            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center').style('margin-left: 80px; margin-top: 50px;').tailwind.flex('auto').place_items('center')       
+            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center upload').style('margin-top: 50px; display: flex; justify-content: center;')
     
 
 index_page()

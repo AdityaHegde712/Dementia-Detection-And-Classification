@@ -9,6 +9,7 @@ Image Processing v1/inception_v4.pth
 Image Processing v1/mobilenetv3.pth
 Image Processing v1/resnet50.pth
 Image Processing v1/vgg16.pth
+Front-End/left-align.py
 
 # Folders
 Resources/Datasets/Voice/
