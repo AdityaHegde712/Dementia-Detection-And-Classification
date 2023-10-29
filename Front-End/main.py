@@ -43,6 +43,14 @@ def index_page():
                             padding-left: 80px;
                             font-weight: bold;
                         }
+                        .form {
+                            margin-left: 80px;
+                            margin-top: 20px;
+                            margin-right: 150px;
+                            font-family: 'Cairo Play', sans-serif;
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
                     </style>       
              ''')
     
@@ -59,7 +67,7 @@ def index_page():
     with ui.tabs().classes('w-full') as tabs:
         mri = ui.tab('MRI Scan')
         csv = ui.tab('CSV Report')
-        # form = ui.tab('Manual Entry')
+        form = ui.tab('Manual Entry')
     with ui.tab_panels(tabs, value=mri).classes('w-full'):
         with ui.tab_panel(mri): # MRI Tab
             ui.label('Upload the MRI Scans Here\n').classes('subtitle')
@@ -77,14 +85,18 @@ def index_page():
                     max_file_size=100000000, 
                     label="CSV file"
                     ).classes('upload items-center').tailwind.flex('auto').place_items('center')
-            
-            # ui.notify("File upload successful!")
-        # with ui.tab_panel(form):
-        #     ui.label('Enter your information manually:').classes('subtitle')
+        
+        with ui.tab_panel(form):
+            ui.label('Enter your information manually:').classes('subtitle')
+            # Form control for MMSE, nWBW, M/F, EDUC, MR Delay, eTIV, ASF
+            ui.input(label='MMSE', placeholder='Please enter MMSE value',
+            validation={'Wrong Input type': lambda value: type(value) != 'int64'}).classes('form')
+
+            ui.notify("File upload successful!")
+        with ui.tab_panel(form):
+            ui.label('Enter your information manually:').classes('subtitle')
     ui.button(text="Get Accuracies", on_click=processMRI).classes('items-center').style('margin-left: 95px;').tailwind.flex('auto').place_items('center')
             
         
 index_page()
-ui.run(favicon='Front-End\\resources\\dl3.png')
-
-# Tab view
+ui.run(favicon='Front-End\\resources\\dl3.png', port=5000)
