@@ -10,8 +10,6 @@ Image Processing v1/inception_v4.pth
 Image Processing v1/mobilenetv3.pth
 Image Processing v1/resnet50.pth
 Image Processing v1/vgg16.pth
-Image Processing v2/Model_resnet50.pth
-Image Processing v2/Model_mobilenetv3_large.pth
 Front-End/left-align.py
 
 # Folders
@@ -25,5 +23,7 @@ Image Processing v2/Binary_Data
 Image Processing v2/Binary_ttv
 Image Processing v2\Binary_Data\\altDemented
 Image Processing v2\Binary_Data\\altNonDemented
+Image Processing v2/Models
+Image Processing v2/NewBinary_TTV
 
 # Other pastes
