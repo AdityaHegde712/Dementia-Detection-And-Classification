@@ -1,0 +1,6 @@
+Binary_Data_Original - Original untouched binary classification data
+Multiclass_Data_original - Original untouched multi-class classification data
+Binary_ttv - Binary class, train-augmented, test-augmented, validation imbalance, only oversampling [Originally was only train-augmented]
+NewBinary_TTV - Binary class, source augmented and then split so zero imbalance, only oversampling
+Binary_TTV_over_under_train - Binary class, train augmented and split, oversampling train-demented and undersampling train-nondemented
+Binary_TTV_over_under_all - Binary class, source augmented and split, oversampling source-demented and undersampling source-non-demented
