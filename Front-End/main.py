@@ -34,10 +34,10 @@ def index_page():
         prediction = predict()
         ui.add_body_html('<br><br><br>')
         ui.label(f"Prediction: {prediction}").style('font-size: 24px; font-weight: bold; text-align: center; margin-top: 50px;')
-        if prediction == 'Demented':
-            m_prediction = predictMulti()
-            ui.add_body_html('<br><br><br>')
-            ui.label(f"Multi-Class Prediction: {m_prediction}").style('font-size: 24px; font-weight: bold; text-align: center; margin-top: 30px;')
+        # if prediction == 'Demented':
+        #     m_prediction = predictMulti()
+        #     ui.add_body_html('<br><br><br>')
+        #     ui.label(f"Multi-Class Prediction: {m_prediction}").style('font-size: 24px; font-weight: bold; text-align: center; margin-top: 30px;')
         os.remove('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads\\MRIs\\uploaded_image.jpg')
 
     def processCSV():
