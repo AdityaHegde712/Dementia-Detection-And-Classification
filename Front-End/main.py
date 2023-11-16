@@ -2,15 +2,25 @@ from nicegui import ui, app
 import asyncio
 import tempfile
 import os
+from model import *
+
+table_display = None
 
 @ui.page('/index')
 def index_page():
     # Function definitions
     async def on_upload(e):
-        if str(e.name).endswith('csv') or str(e.name).endswith('jpg'):
-            with open(os.path.join('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads', e.name), mode='wb') as f:
+        os.makedirs('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads\\CSVs', exist_ok=True)
+        os.makedirs('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads\\MRIs', exist_ok=True)
+        if str(e.name).endswith('csv'):
+            with open(os.path.join('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads\\CSVs', "uploaded_file.csv"), mode='wb') as f:
                 f.write(e.content.read())
-            ui.notify(f"Uploaded and saved {e.name}")
+            ui.notify(f"Uploaded and saved {e.name} as uploaded_file.csv")
+            return
+        elif str(e.name).endswith('jpg'):
+            with open(os.path.join('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads\\MRIs', "uploaded_image.jpg"), mode='wb') as f:
+                f.write(e.content.read())
+            ui.notify(f"Uploaded and saved {e.name} as uploaded_image.jpg")
             return
         await display_error_message()
 
@@ -18,9 +28,33 @@ def index_page():
         label = ui.label('Error: Invalid File Type!').classes('error')
         await asyncio.sleep(3)
         label.delete()
-    
+
     def processMRI():
         ui.notify("The model will now work")
+        prediction = predict()
+        ui.add_body_html('<br><br><br>')
+        ui.label(f"Prediction: {prediction}").style('font-size: 24px; font-weight: bold; text-align: center; margin-top: 50px;')
+        if prediction == 'Demented':
+            m_prediction = predictMulti()
+            ui.add_body_html('<br><br><br>')
+            ui.label(f"Multi-Class Prediction: {m_prediction}").style('font-size: 24px; font-weight: bold; text-align: center; margin-top: 30px;')
+        os.remove('C:\\Users\\hifia\\Projects\\Dementia Detection and Classification\\Front-End\\uploads\\MRIs\\uploaded_image.jpg')
+
+    def processCSV():
+        global table_display
+        ui.notify("The model will now work")
+        table_display = predictCSVs()
+        print(f"Table: {table_display}")
+        ui.add_body_html('<br><br><br>')
+        columns = [
+            {'name': 'entry', 'label': 'Entry', 'field': 'entry', 'required': True, 'align': 'center'},
+            {'name': 'diag', 'label': 'Diagnosis', 'field': 'diag', 'sortable': True, 'align': 'center'},
+        ]
+        print(f"\n\nRows: {table_display}")
+        print(f"\n\nColumns: {columns}\n")
+        ui.table(columns=columns, rows=table_display).style('margin-left: 580px; margin-right: 600px; margin-top: 50px;')
+        
+        
 
     # Styling
     ui.add_head_html('''
@@ -70,7 +104,6 @@ def index_page():
     with ui.tabs().classes('w-full').style('margin-top: -120px; margin-left: auto; margin-right: auto; text-align: center;') as tabs:
         mri = ui.tab('MRI Scan')
         csv = ui.tab('CSV Report')
-        form = ui.tab('Manual Entry')
 
     with ui.tab_panels(tabs, value=mri).classes('w-full'):
 
@@ -83,6 +116,8 @@ def index_page():
                     ).classes('upload items-center').tailwind.flex('auto').place_items('center')
             ui.add_body_html('<br><br>')
             ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center upload').style('margin-top: 50px; display: flex; justify-content: center;')
+            ui.add_body_html('<br><br>')
+
             
         with ui.tab_panel(csv): # CSV Tab
             ui.label("Upload the CSV Reports here\n").classes('subtitle').style('text-align: center;'); ui.html('<br>')
@@ -92,28 +127,9 @@ def index_page():
                     label="CSV file"
                     ).classes('upload')
             ui.add_body_html('<br><br>')
-            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center upload').style('margin-top: 50px; display: flex; justify-content: center;')
-        
-        with ui.tab_panel(form): # Form Tab
-            ui.label('Enter your information manually:').classes('subtitle').style('text-align: center;')
-            # Form control for MMSE, nWBW, M/F, EDUC, MR Delay, eTIV, ASF
-            ui.input(label='MMSE', placeholder='Please enter MMSE value',
-            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
-            ui.input(label='nWBW', placeholder='Please enter nWBW value',
-            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
-            ui.input(label='M/F', placeholder='Please enter M/F value',
-            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
-            ui.input(label='EDUC', placeholder='Please enter EDUC value',
-            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
-            ui.input(label='MR Delay', placeholder='Please enter MR Delay value',
-            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
-            ui.input(label='eTIV', placeholder='Please enter eTIV value',
-            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
-            ui.input(label='ASF', placeholder='Please enter ASF value',
-            validation={'Wrong Input type': lambda value: str(value).isnumeric()}).classes('form')
+            ui.button(text="Get Probabilities", on_click=processCSV).classes('items-center upload').style('margin-top: 50px; display: flex; justify-content: center;')
             ui.add_body_html('<br><br>')
-            ui.button(text="Get Probabilities", on_click=processMRI).classes('items-center upload').style('margin-top: 50px; display: flex; justify-content: center;')
-    
-
+            
+            
 index_page()
-ui.run(favicon='Front-End\\resources\\dl3.png', port=5000)
+ui.run(favicon='Front-End\\resources\\dl3.png', port=5000, on_air=True)
