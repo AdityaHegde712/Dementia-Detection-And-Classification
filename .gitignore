@@ -11,6 +11,7 @@ Image Processing v1/mobilenetv3.pth
 Image Processing v1/resnet50.pth
 Image Processing v1/vgg16.pth
 Front-End/left-align.py
+Front-End/resources/models/multi-model.keras
 
 # Folders
 Resources/Datasets/Voice/
