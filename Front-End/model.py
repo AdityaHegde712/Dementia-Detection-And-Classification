@@ -129,44 +129,43 @@ def predict() -> str:
     return predicted_class
 
 
-# def getMultiLoader(image_path):
-#     # img = image.load_img(image_path, target_size=(176, 208))
-#     img = image.load_img(image_path, target_size=(150, 150))
-#     img_array = image.img_to_array(img)
-#     img_array = np.expand_dims(img_array, axis=0)
+def getMultiLoader(image_path):
+    # img = image.load_img(image_path, target_size=(176, 208))
+    img = image.load_img(image_path, target_size=(150, 150))
+    img_array = image.img_to_array(img)
+    img_array = np.expand_dims(img_array, axis=0)
 
-#     img_array = preprocess_input(img_array)
+    img_array = preprocess_input(img_array)
 
-#     return img_array
-
-
-
-# def multiPrediction(loader, model):
-#     # Make predictions using the Keras model
-#     predictions = model.predict(loader)
-
-#     # Get the predicted class index
-#     predicted_class_index = predictions.argmax(axis=1)[0]
-
-#     # Map the class index to your class labels
-#     # class_labels = {0: 'Demented', 1: 'NonDemented'}  # Modify this based on your actual class labels
-#     # predicted_class = class_labels[predicted_class_index]
-
-#     return predicted_class_index
+    return img_array
 
 
-# def predictMulti():
-#     predictions = []
-#     model_path = 'C:/Users/hifia/Projects/Dementia Detection and Classification/Front-End/resources/models/multi-model.keras'
-#     for image in os.listdir('C:/Users/hifia/Projects/Dementia Detection and Classification/Front-End/uploads/MRIs/'):
-#         # image_path = 'C:/Users/hifia/Projects/Dementia Detection and Classification/Front-End/uploads/MRIs/uploaded_image.jpg'
-#         image_path = os.path.join('C:/Users/hifia/Projects/Dementia Detection and Classification/Front-End/uploads/MRIs/', image)
-#         model = load_model(model_path)
-#         loader = getMultiLoader(image_path)
-#         predicted_class = multiPrediction(loader, model)
-#         print(f"Name: {image}, Prediction: {predicted_class}")
-#         predictions.append(predicted_class)
-#     return predictions
 
-# print(predictMulti())
+def multiPrediction(loader, model):
+    # Make predictions using the Keras model
+    predictions = model.predict(loader)
+
+    # Get the predicted class index
+    predicted_class_index = predictions.argmax(axis=1)[0]
+
+    # Map the class index to your class labels
+    # class_labels = {0: 'Demented', 1: 'NonDemented'}  # Modify this based on your actual class labels
+    # predicted_class = class_labels[predicted_class_index]
+
+    return predicted_class_index
+
+
+def predictMulti():
+    predictions = []
+    model_path = 'C:/Users/hifia/Projects/Dementia Detection and Classification/Front-End/resources/models/multi-model.keras'
+    for image in os.listdir('C:/Users/hifia/Projects/Dementia Detection and Classification/Front-End/uploads/MRIs/'):
+        # image_path = 'C:/Users/hifia/Projects/Dementia Detection and Classification/Front-End/uploads/MRIs/uploaded_image.jpg'
+        image_path = os.path.join('C:/Users/hifia/Projects/Dementia Detection and Classification/Front-End/uploads/MRIs/', image)
+        model = load_model(model_path)
+        loader = getMultiLoader(image_path)
+        predicted_class = multiPrediction(loader, model)
+        print(f"Name: {image}, Prediction: {predicted_class}")
+        predictions.append(predicted_class)
+    return predictions
+
 
