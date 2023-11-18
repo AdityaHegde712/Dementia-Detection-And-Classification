@@ -12,6 +12,8 @@ Image Processing v1/resnet50.pth
 Image Processing v1/vgg16.pth
 Front-End/left-align.py
 Front-End/resources/models/multi-model.keras
+Image Processing v2/Image Processing v2.zip
+
 
 # Folders
 Resources/Datasets/Voice/
@@ -23,5 +25,7 @@ Image Processing v2/Multiclass_*
 Image Processing v2/Binary_*
 Image Processing v2/Models
 Image Processing v2/NewBinary_TTV
+.*/__pycache__
+Image Processing v2/__pycache__
 
 # Other pastes
